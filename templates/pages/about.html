@@ -1,4 +1,6 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} 
+{% load static %}
+{% block content %}
 
 <section id="showcase-inner" class="py-5 text-white">
   <div class="container">
@@ -10,7 +12,7 @@
           pariatur!
         </p>
       </div>
-    </div>
+    </div>                             
   </div>
 </section>
 
@@ -20,8 +22,7 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          {% comment %} fix index.html {% endcomment %}
-          <a href="index.html"> <i class="fas fa-home"></i> Home</a>
+          <a href={% url "pages:index" %}> <i class="fas fa-home"></i>Home</a>
         </li>
         <li class="breadcrumb-item active">About</li>
       </ol>
@@ -41,8 +42,7 @@
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt,
           pariatur!
         </p>
-        {% comment %} fix src {% endcomment %}
-        <img src="assets/img/about.jpg" alt="" />
+        <img src={% static "img/about.jpg" %} alt="" />
         <p class="mt-4">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
           esse officia repudiandae ad saepe ex, amet neque quod accusamus rem
@@ -55,15 +55,7 @@
         <div class="card">
           <img
             class="card-img-top"
-            {%
-            comment
-            %}
-            fix
-            src
-            {%
-            endcomment
-            %}
-            src="assets/img/doctors/kyle.jpg"
+            src={% static "img/doctors/kyle.jpg" %}
             alt="Seller of the month"
           />
           <div class="card-body">
@@ -100,16 +92,9 @@
     <h2 class="text-center pb-4">Our Team</h2>
     <div class="row text-center">
       <div class="col-md-4">
+        {% comment %} fix src {% endcomment %}
         <img
-          {%
-          comment
-          %}
-          fix
-          src
-          {%
-          endcomment
-          %}
-          src="assets/img/doctors/kyle.jpg"
+          src={% static "img/doctors/kyle.jpg" %}
           alt=""
           class="rounded-circle mb-3 img-fluid"
           style="object-fit: cover; width: 300px; height: 300px"
@@ -124,16 +109,9 @@
       </div>
 
       <div class="col-md-4">
+        {% comment %} fix src {% endcomment %}
         <img
-          {%
-          comment
-          %}
-          fix
-          src
-          {%
-          endcomment
-          %}
-          src="assets/img/doctors/emma.jpg"
+          src={% static "img/doctors/emma.jpg" %}
           alt=""
           class="rounded-circle mb-3 img-fluid"
           style="object-fit: cover; width: 300px; height: 300px"
@@ -147,15 +125,7 @@
 
       <div class="col-md-4">
         <img
-          {%
-          comment
-          %}
-          fix
-          src
-          {%
-          endcomment
-          %}
-          src="assets/img/doctors/jenny.jpg"
+          src={% static "img/doctors/jenny.jpg" %}
           alt=""
           class="rounded-circle mb-3 img-fluid"
           style="object-fit: cover; width: 300px; height: 300px"

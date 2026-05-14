@@ -1,4 +1,6 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} 
+{% load static %}
+{% block content %}
 <!-- Showcase -->
 <section id="showcase">
   <div class="container text-center">
@@ -99,17 +101,10 @@
       <!-- Listing 1 -->
       <div class="col-md-6 col-lg-4 mb-4">
         <div class="card listing-preview">
+          {% comment %} fix src {% endcomment %}
           <img
             class="card-img-top"
-            {%
-            comment
-            %}
-            fix
-            src
-            {%
-            endcomment
-            %}
-            src="assets/img/clinics/clinic-1.jpg"
+            src={% static "img/clinics/clinic-1.jpg" %}
             alt=""
           />
           <div class="card-img-overlay"></div>
@@ -152,15 +147,7 @@
         <div class="card listing-preview">
           <img
             class="card-img-top"
-            {%
-            comment
-            %}
-            fix
-            src
-            {%
-            endcomment
-            %}
-            src="assets/img/clinics/clinic-2.jpg"
+            src={% static "img/clinics/clinic-2.jpg" %}
             alt=""
           />
           <div class="card-img-overlay"></div>
@@ -203,15 +190,7 @@
         <div class="card listing-preview">
           <img
             class="card-img-top"
-            {%
-            comment
-            %}
-            fix
-            src
-            {%
-            endcomment
-            %}
-            src="assets/img/clinics/clinic-3.jpg"
+            src={% static "img/clinics/clinic-3.jpg" %}
             alt=""
           />
           <div class="card-img-overlay"></div>
