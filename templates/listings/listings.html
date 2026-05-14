@@ -1,9 +1,9 @@
 {% extends "base.html" %} {% load static %} {% block content %}
 <section id="showcase-inner" class="py-5 text-white">
-div class="container">
+<div class="container">
     <div class="row text-center">
     <div class="col-md-12">
-        <h1 class="display-4">Browse Our Clinic</h1>
+        <h1 class="display-4">{{name.0}}-{{phone}} Browse Our Clinic</h1>
         <p class="lead">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt,
         pariatur!
@@ -20,7 +20,7 @@ div class="container">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
         {% comment "" %} fix html {% endcomment %}
-        <a href="index.html"> <i class="fas fa-home"></i> Home</a>
+        <a href={% url "pages:index" %}> <i class="fas fa-home"></i> Home</a>
         </li>
         <li class="breadcrumb-item active">Browse Listings</li>
     </ol>
@@ -47,31 +47,29 @@ div class="container">
             <h4 class="text-primary">Harmony Health Clinic</h4>
             <p>
                 <i class="fas fa-map-marker text-secondary"></i> Kowloon Bay
-              </p>
+            </p>
             </div>
             <hr />
             <div class="row py-2 text-secondary">
-              <div class="col-6"><i class="fas fa-th-large"></i> Restrooms</div>
-              <div class="col-6"><i class="fas fa-dumbbell"></i> Treatment</div>
+            <div class="col-6"><i class="fas fa-th-large"></i> Restrooms</div>
+            <div class="col-6"><i class="fas fa-dumbbell"></i> Treatment</div>
             </div>
             <div class="row py-2 text-secondary">
-              <div class="col-6"><i class="fas fa-bed"></i> Bedrooms</div>
-              <div class="col-6"><i class="fas fa-bath"></i> Bathrooms</div>
+            <div class="col-6"><i class="fas fa-bed"></i> Bedrooms</div>
+            <div class="col-6"><i class="fas fa-bath"></i> Bathrooms</div>
             </div>
             <hr />
             <div class="row py-2 text-secondary">
-              <div class="col-12"><i class="fas fa-user"></i> Ms. Ma</div>
+            <div class="col-12"><i class="fas fa-user"></i> Ms. Ma</div>
             </div>
             <div class="row text-secondary pb-2">
-              <div class="col-12">
+            <div class="col-12">
                 <i class="fas fa-clock"></i> Reservation required
-              </div>
+            </div>
             </div>
             <hr />
             {% comment "" %} fix html {% endcomment %}
-            <a href="listing.html" class="btn btn-primary btn-block"
-              >More Info</a
-            >
+            <a href="listing.html" class="btn btn-primary btn-block">More Info</a>
           </div>
         </div>
       </div>
@@ -113,9 +111,7 @@ div class="container">
             </div>
             <hr />
             {% comment "" %} fix html {% endcomment %}
-            <a href="listing.html" class="btn btn-primary btn-block"
-              >More Info</a
-            >
+            <a href="listing.html" class="btn btn-primary btn-block">More Info</a>
           </div>
         </div>
       </div>
@@ -157,9 +153,7 @@ div class="container">
             </div>
             <hr />
             {% comment "" %} fix html {% endcomment %}
-            <a href="listing.html" class="btn btn-primary btn-block"
-              >More Info</a
-            >
+            <a href="listing.html" class="btn btn-primary btn-block">More Info</a>
           </div>
         </div>
       </div>
