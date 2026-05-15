@@ -40,6 +40,7 @@ DJANGO_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
 ]
 
 APPLICATION_APPS = [
@@ -142,7 +143,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'config/static')]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # django debug toolbar
-INTERNAL_IPS = ["127.0.0.1",]
+INTERNAL_IPS = ["127.0.0.1",'localhost']
 
 
 #Media Path
