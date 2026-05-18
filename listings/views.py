@@ -12,8 +12,6 @@ def listings(request):
     return render(request, "listings/listings.html", context)
 
 def listing(request, listing_id):
-    #Get record by id
-    #listing = Listing.objects.filter(pk=listing_id).first()
     listing = get_object_or_404(Listing, pk=listing_id)
     context = {'listing': listing}
     return render(request, "listings/listing.html", context)
