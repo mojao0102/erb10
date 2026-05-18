@@ -1,10 +1,10 @@
-{% extends "base.html" %} {% load static %} {% block content %}
+{% extends "base.html" %} {% load static %} {% load humanize %} {% block content %}
 <section id="showcase-inner" class="py-5 text-white">
   <div class="container">
     <div class="row text-center">
       <div class="col-md-12">
-        <h1 class="display-4">Lifeline Wellness Center</h1>
-        <p class="lead"><i class="fas fa-map-marker"></i> Yau Tsim Mong</p>
+        <h1 class="display-4">{{listing.title | title}}</h1>
+        <p class="lead"><i class="fas fa-map-marker"></i>{{listing.district | title}}</p>
       </div>
     </div>
   </div>
@@ -16,12 +16,12 @@
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="index.html">Home</a>
+          <a href={% url "pages:index" %}>Home</a>
         </li>
         <li class="breadcrumb-item">
-          <a href="listings.html">Listings</a>
+          <a href={% url "listings:index" %}>Listings</a>
         </li>
-        <li class="breadcrumb-item active">Lifeline Wellness Center</li>
+        <li class="breadcrumb-item active">{{listing.title | title}}</li>
       </ol>
     </nav>
   </div>
@@ -30,22 +30,24 @@
 <!-- Listing -->
 <section id="listing" class="py-4">
   <div class="container">
-    <a href="listings.html" class="btn btn-light mb-4">Back To Listings</a>
+    <a href={% url "listings:index" %} class="btn btn-light mb-4">Back To Listings</a>
     <div class="row">
       <div class="col-md-9">
         <!-- Home Main Image -->
         <img
-          src="assets/img/clinics/clinic-1.jpg"
+          src="{{listing.photo_main.url}}"
           alt=""
           class="img-main img-fluid mb-3"
         />
         <!-- Thumbnails -->
         <div class="row mb-5 thumbs">
+
           <div class="col-md-2">
             <a
               href="assets/img/clinics/clinic-inside-1.jpg"
               data-lightbox="home-images"
             >
+            {% comment %} Fix img {% endcomment%}
               <img
                 src="assets/img/clinics/clinic-inside-1.jpg"
                 alt=""
@@ -53,11 +55,14 @@
               />
             </a>
           </div>
+
           <div class="col-md-2">
+            {% comment %} Fix img {% endcomment%}
             <a
               href="assets/img/clinics/clinic-inside-2.jpg"
               data-lightbox="home-images"
             >
+            {% comment %} Fix img {% endcomment%}
               <img
                 src="assets/img/clinics/clinic-inside-2.jpg"
                 alt=""
@@ -65,11 +70,14 @@
               />
             </a>
           </div>
+
           <div class="col-md-2">
+            {% comment %} Fix img {% endcomment%}
             <a
               href="assets/img/clinics/clinic-inside-3.jpg"
               data-lightbox="home-images"
             >
+            {% comment %} Fix img {% endcomment%}
               <img
                 src="assets/img/clinics/clinic-inside-3.jpg"
                 alt=""
@@ -77,11 +85,14 @@
               />
             </a>
           </div>
+
           <div class="col-md-2">
+            {% comment %} Fix img {% endcomment%}
             <a
               href="assets/img/clinics/clinic-inside-4.jpg"
               data-lightbox="home-images"
             >
+            {% comment %} Fix img {% endcomment%}
               <img
                 src="assets/img/clinics/clinic-inside-4.jpg"
                 alt=""
@@ -89,11 +100,14 @@
               />
             </a>
           </div>
+
           <div class="col-md-2">
+            {% comment %} Fix img {% endcomment%}
             <a
               href="assets/img/clinics/clinic-inside-5.jpg"
               data-lightbox="home-images"
             >
+            {% comment %} Fix img {% endcomment%}
               <img
                 src="assets/img/clinics/clinic-inside-5.jpg"
                 alt=""
@@ -101,11 +115,14 @@
               />
             </a>
           </div>
+
           <div class="col-md-2">
+            {% comment %} Fix img {% endcomment%}
             <a
               href="assets/img/clinics/clinic-inside-6.jpg"
               data-lightbox="home-images"
             >
+            {% comment %} Fix img {% endcomment%}
               <img
                 src="assets/img/clinics/clinic-inside-6.jpg"
                 alt=""
@@ -114,6 +131,7 @@
             </a>
           </div>
         </div>
+
         <!-- Fields -->
         <div class="row mb-5 fields">
           <div class="col-md-6">
@@ -123,16 +141,16 @@
                 <span class="float-right">$20,000/Day</span>
               </li>
               <li class="list-group-item text-secondary">
-                <i class="fas fa-bed"></i> Bedrooms:
-                <span class="float-right">30</span>
+                <i class="fas fa-bed"></i> Rooms:
+                <span class="float-right">{{listing.rooms}}</span>
               </li>
               <li class="list-group-item text-secondary">
-                <i class="fas fa-bath"></i> Bathrooms:
-                <span class="float-right">Private</span>
+                <i class="fas fa-bath"></i> Room Type:
+                <span class="float-right">{{listing.room_type}}</span>
               </li>
               <li class="list-group-item text-secondary">
-                <i class="fas fa-dumbbell"></i> Treatment:
-                <span class="float-right"> Have </span>
+                <i class="fas fa-dumbbell"></i> Services:
+                <span class="float-right">{{listing.services}}</span>
               </li>
             </ul>
           </div>
@@ -160,12 +178,12 @@
 
         <!-- Description -->
         <div class="row mb-5">
-          <div class="col-md-12">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
+          <div class="col-md-12">{{listing.description}}
+            {% comment %} Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
             recusandae esse reiciendis officia omnis non rerum dicta cupiditate
             nostrum molestias deserunt aut minus inventore animi atque,
             consequuntur ad fugit. Possimus culpa blanditiis repellendus ipsa
-            similique ullam, natus error dolor harum.
+            similique ullam, natus error dolor harum. {% endcomment %}
           </div>
         </div>
       </div>
@@ -173,13 +191,12 @@
         <div class="card mb-3">
           <img
             class="card-img-top"
-            src="assets/img/doctors/kyle.jpg"
+            src="{{listing.doctor.photo.url}}"
             alt="Seller of the month"
           />
           <div class="card-body">
             <h5 class="card-title">Medical Practitioner</h5>
-            <h6 class="text-secondary">Kyle Chan</h6>
-          </div>
+            <h6 class="text-secondary">{{listing.doctor.name}}
         </div>
         <button
           class="btn-primary btn-block btn-lg"

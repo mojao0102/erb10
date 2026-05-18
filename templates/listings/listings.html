@@ -74,8 +74,7 @@
             </div>
             </div>
             <hr />
-            {% comment "" %} fix html {% endcomment %}
-            <a href="listing.html" class="btn btn-primary btn-block">More Info</a>
+            <a href={% url "listings:listing" listing.id %} class="btn btn-primary btn-block">More Info</a>
           </div>
         </div>
     </div>
@@ -92,9 +91,18 @@
       <div class="col-md-12">
         <ul class="pagination">
 
+          {% comment %} <li {% if listings.number == 1 %} class="page-item disabled" {% else %} class="page-item" {% endif %}>
+          <a class="page-link" href="?page={{listings.number | add:"-1"}}">&laquo;</a>
+          </li> {% endcomment %}
+          {% if listings.has_previous %}
+          <li class="page-item">   
+            <a class="page-link" href="?page={{listings.previous_page_number}}">&laquo;</a>
+          </li>  
+          {% else %}
           <li class="page-item disabled">
             <a class="page-link" href="#">&laquo;</a>
           </li>
+          {% endif %}
 
           {% comment %} For loop page number {% endcomment %}
           {% for i in listings.paginator.page_range %}
@@ -110,9 +118,18 @@
           {% endfor %}       
           {% comment %} End loop page number {% endcomment %}
 
-          <li class="page-item">
+          {% comment %} <li {% if listings.number == listings.paginator.num_pages %} class="page-item disabled" {% else %} class="page-item" {% endif %}>
+          <a class="page-link" href="?page={{listings.number | add:"1"}}">&raquo;</a>
+          </li> {% endcomment %}
+          {% if listings.has_next %}
+          <li class="page-item">   
+            <a class="page-link" href="?page={{listings.next_page_number}}">&raquo;</a>
+          </li>  
+          {% else %}
+          <li class="page-item disabled">
             <a class="page-link" href="#">&raquo;</a>
           </li>
+          {% endif %}
 
         </ul>
       </div>
