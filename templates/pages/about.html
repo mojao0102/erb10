@@ -65,10 +65,7 @@
           <div class="card-body">
             <h5 class="card-title">Top Doctor</h5>
             <h6 class="text-secondary">{{mvp_doctor.name}}</h6>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-              nesciunt amet, illo itaque similique repellat. content.
-            </p>
+            <p class="card-text">{{mvp_doctor.description}}</p>
           </div>
         </div>
         {% endfor %}
@@ -118,7 +115,7 @@
     </div>
     {% else %}
       <div class="col-md-12">
-        <h2 class="text-center">No Published Clinic Available</h2>
+        <h2 class="text-center">No Doctor Available</h2>
       </div>
     {% endif %}
   </div>

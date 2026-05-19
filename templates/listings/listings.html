@@ -34,8 +34,7 @@
 <!-- Listings -->
 <section id="listings" class="py-4">
 <div class="container">
-    <div class="row">
-      
+    <div class="row">    
     <!-- Listing 1 -->
     {% if listings %}
     {% for listing in listings %}
@@ -46,6 +45,7 @@
             class="card-img-top"
             src="{{listing.photo_main.url}}"
             alt=""
+            style="height: 200px; object-fit: cover;"
         />
         <div class="card-img-overlay"></div>
         <div class="card-body">

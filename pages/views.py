@@ -19,7 +19,4 @@ def about(request):
     doctors = Doctor.objects.order_by('-hire_date')[:3]
     mvp_doctors = Doctor.objects.all().filter(is_mvp=True)
     context = {"doctors" : doctors, "mvp_doctors" : mvp_doctors}
-
-    print(mvp_doctors)
-
     return render(request, "pages/about.html", context)
