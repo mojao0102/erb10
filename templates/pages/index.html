@@ -14,8 +14,9 @@
           Consectetur, id commodi!
         </p>
         <div class="search">
+
           {% comment %} Serach From {% endcomment %}
-          <form action="search.html">
+          <form action={% url "listings:search" %}>
             <!-- Form Row 1 -->
             <div class="form-row">
               <div class="col-md-12 mb-3">
@@ -30,6 +31,7 @@
             </div>
             <!-- Form Row 2 -->
             <div class="form-row">
+
               <div class="col-md-4 mb-3">
                 <label class="sr-only">District</label>
                 <select name="district" class="form-control">
@@ -42,35 +44,38 @@
                   {% for key, value in districts.items %}
                     <option value={{key}}>{{value}}</option>
                   {% endfor %}
-
                 </select>
               </div>
+
               <div class="col-md-4 mb-3">
                 <label class="sr-only">Bedrooms</label>
-                <select name="bedrooms" class="form-control">
+                <select name="room_num" class="form-control">
                   <option selected="true" disabled="disabled">
-                    Night (All)
+                    Number of rooms (All)
                   </option>
                   {% for key, value in room_num_choices.items %}
                     <option value={{key}}>{{value}}</option>
                   {% endfor %}
                 </select>
               </div>
+
               <div class="col-md-4 mb-3">
-                <select name="price" class="form-control" id="type">
+                <select name="room_type" class="form-control" id="type">
                   <option selected="true" disabled="disabled">
-                    Bedrooms (All)
+                    Room types (All)
                   </option>
                   {% for key, value in room_type_choices.items %}
                     <option value={{key}}>{{value}}</option>
                   {% endfor %}
                 </select>
               </div>
+              
             </div>
             <button class="btn btn-secondary btn-block mt-4" type="submit">
               Submit form
             </button>
           </form>
+
         </div>
       </div>
     </div>

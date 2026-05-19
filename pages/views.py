@@ -10,7 +10,7 @@ def index(request):
     #districts = Listing.objects.values('district').distinct().order_by('district')
     context = {"listings" : listings, 
                "districts" : district_choices, 
-               "room_choices" : room_type_choices,
+               "room_type_choices" : room_type_choices,
                "room_num_choices" : room_num_choices,}
     return render(request, "pages/index.html", context)
 
