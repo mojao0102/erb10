@@ -42,7 +42,7 @@
                   <option value={{district.district}}>{{district.district}}</option>
                   {% endfor %} {% endcomment %}
                   {% for key, value in districts.items %}
-                    <option value={{key}}>{{value}}</option>
+                    <option value="{{key}}">{{value}}</option>
                   {% endfor %}
                 </select>
               </div>
@@ -54,7 +54,7 @@
                     Number of rooms (All)
                   </option>
                   {% for key, value in room_num_choices.items %}
-                    <option value={{key}}>{{value}}</option>
+                    <option value="{{key}}">{{value}}</option>
                   {% endfor %}
                 </select>
               </div>
@@ -65,7 +65,7 @@
                     Room types (All)
                   </option>
                   {% for key, value in room_type_choices.items %}
-                    <option value={{key}}>{{value}}</option>
+                    <option value="{{key}}">{{value}}</option>
                   {% endfor %}
                 </select>
               </div>
