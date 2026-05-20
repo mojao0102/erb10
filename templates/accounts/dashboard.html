@@ -38,16 +38,22 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Clinic</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Message</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                    {% for listing in listings %}
+                    {% for contact in contacts %}
                         <tr>
-                            <td>{{listing.id}}</td>
-                            <td>{{listing.title}}</td>
+                            <td>{{contact.id}}</td>
+                            <td>{{contact.listing}}</td>
+                            <td>{{contact.name}}</td>
+                            <td>{{contact.email}}</td>
+                            <td>{{contact.message}}</td>
                             <td>
-                                <a class="btn btn-light" href="{% url "listings:listing" listing.id %}">View Listing</a>
+                                <a class="btn btn-light" href="{% url "listings:listing" contact.listing_id %}">View Listing</a>
                             </td>
                         </tr>
                     {% endfor %}
