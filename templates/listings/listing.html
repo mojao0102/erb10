@@ -28,9 +28,9 @@
   </div>
 </section>
 
+{% include "partials/_alert.html" %}
 <!-- Listing -->
 <section id="listing" class="py-4">
-  {% include "partials/_alert.html" %}
   <div class="container">
     <a href={% url "listings:index" %} class="btn btn-light mb-4">Back To Listings</a>
     <div class="row">
@@ -198,10 +198,10 @@
           <div class="form-group">
 
             <input type="hidden" name="listing_id" value="{{listing.id}}"/>
-
-            <input type="hidden" name="user_id" 
+            <input type="hidden" name="doctor_email" value="{{listing.doctor.email}}"/>
+            {% comment %} <input type="hidden" name="user_id" 
             {% if user.is_authenticated %}value="{{user.id}}"{% else%}value="0"{% endif %}
-            />
+            /> {% endcomment %}
             
             <label for="clinic_name" class="col-form-label">Clinic:</label>
             <input
