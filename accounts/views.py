@@ -63,6 +63,6 @@ def logout(request):
     return render(request, "accounts/logout.html")
 
 def dashboard(request):  
-    contacts = Contact.objects.all().order_by("-contact_date")
+    contacts = Contact.objects.filter(user_id=request.user.id).order_by("-contact_date")
     context = {"contacts" : contacts}
     return render(request, "accounts/dashboard.html", context)

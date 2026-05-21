@@ -1,8 +1,10 @@
+from django.shortcuts import render, get_object_or_404
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.core.mail import send_mail
 from .models import Contact
+
 
 # Create your views here.
 def contact(request):
@@ -26,16 +28,14 @@ def contact(request):
             contact = Contact(listing=listing, listing_id=listing_id, name=name, email=email, message=message, phone=phone, user_id=user_id)
             contact.save()
 
-            print(doctor_email)
-
-            #Send email to doctor
+            '''#Send email to doctor
             send_mail(
                 "Clinic Inquiry",
                 message,
                 "iamos0102@gmail.com",
                 [doctor_email],
                 fail_silently=False
-            )
+            )'''
 
             if contact:
                 messages.success(request, "Inquiry sent")
@@ -45,3 +45,11 @@ def contact(request):
             return redirect("listings:listing", listing_id)
 
     return render(request, "contacts/contact.html")
+
+def delete_contact(request, contact_id):
+    contact = get_object_or_404(Contact, pk=contact_id)
+    contact.delete()
+    return redirect("accounts:dashboard")
+
+def edit_contact(request, contact_id):  
+    return redirect("accounts:dashboard")
