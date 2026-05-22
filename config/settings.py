@@ -52,7 +52,10 @@ APPLICATION_APPS = [
     'contacts.apps.ContactsConfig',
 ]
 
-THIRD_PARTY_APPS = ["debug_toolbar",]
+THIRD_PARTY_APPS = [
+    "debug_toolbar",
+    "widget_tweaks",
+]
 
 INSTALLED_APPS = DJANGO_APPS + APPLICATION_APPS + THIRD_PARTY_APPS
 

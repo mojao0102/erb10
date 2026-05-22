@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.core.mail import send_mail
 from .models import Contact
+from .forms import ContactForm
 
 
 # Create your views here.
@@ -52,4 +53,13 @@ def delete_contact(request, contact_id):
     return redirect("accounts:dashboard")
 
 def edit_contact(request, contact_id):  
-    return redirect("accounts:dashboard")
+    contact = get_object_or_404(Contact, pk=contact_id)
+    if request.method == "POST":
+        form = ContactForm(request.POST, instance=contact)
+        if form.is_valid():
+            form.save()
+            return redirect("accounts:dashboard")
+    else:
+        form = ContactForm(instance=contact)
+    return render(request, "contacts/edit_contact.html", {"form" : form, "contact" : contact}) 
+
